@@ -29,6 +29,15 @@
 <%= link_to 'Back', flights_path %>
 
 
-<%= render 'seat_index', seats: Seat.where(flight_id: @flight.id) %>
+<%= render 'seat.index', seats: flight.seats %>
 
-<%= render 'seat_form', seat: Seat.new, flight_id: @flight.id %>
+	if @flight.seats.length < @flight.capacity then
+
+	<%= render 'seat_form', seat: Seat.new, flight_id: @flight.id %>
+
+	<% else %>
+	FLIGHT IS FULL
+	<% end %>
+
+
+

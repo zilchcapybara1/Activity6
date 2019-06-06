@@ -17,3 +17,7 @@
 
 <%= link_to 'Edit', edit_seat_path(@seat) %> |
 <%= link_to 'Back', seats_path %>
+
+<%= render 'seat.index', seats: flight.seats %>
+
+<%= render 'seat_classes.index', seats_classes: seat.seat_classes %>

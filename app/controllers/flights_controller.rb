@@ -5,11 +5,23 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+	@open_flights = []
+	@closed_flights = []
+
+	@flights.each do |f|
+		if f.seats.length >= f.capacity then
+			@closed_flights.append(f)
+		else
+			@open_flights.append(f)
+	 	end
+	end
   end
 
   # GET /flights/1
   # GET /flights/1.json
   def show
+
+	#@flight = Flight.find(params[])
   end
 
   # GET /flights/new
